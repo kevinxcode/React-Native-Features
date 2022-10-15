@@ -4,18 +4,24 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
-      <TextInput>aa</TextInput>
-      <Button
-  onPress={() => {
-    alert('You tapped the button!');
-  }}
-  title="Press Me"
-/>
       <StatusBar style="auto" />
+      <View style={{marginBottom: 10}}>
+        <Text >another text</Text>
+      </View>
+    {/* inline css  */}
+      <Text style={{margin: 16, borderWidth: 2, borderColor: 'red', padding: 16}}>INLINE STYLE</Text> 
+      {/* css in constan */}
+      <Text style={styles.dummyText}>Login</Text>
+    
+      <Button title='Tap Me' />
+
     </View>
   );
 }
+
+const style2 = StyleSheet.create({
+
+})
 
 const styles = StyleSheet.create({
   container: {
@@ -24,4 +30,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  dummyText:{
+    margin: 16,
+    borderWidth: 2,
+    borderColor: 'blue',
+    padding: 16
+  }
 });
