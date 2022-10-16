@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, ScrollView, } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, ScrollView, FlatList } from 'react-native';
 
 export default function App() {
   const [enteredGoaltext, setEnteredGoalText] = useState('');
-  const [courseGoal, setCourseGoals] = useState([]);
+  const [courseGoal, setCourseGoals] = useState([]); // array 
 
   function goalInputHandler(enteredText) {
     // console.log(enteredText);
@@ -14,7 +14,7 @@ export default function App() {
     // console.log(enteredGoaltext);
     setCourseGoals((currentCourseGoals) => [
       ...courseGoal,
-      enteredGoaltext,
+      {text: enteredGoaltext, id: Math.random().toString()}
     ])
   }
 
@@ -26,13 +26,20 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-      <ScrollView alwaysBounceVertical={false}>
-        {courseGoal.map((goal) =>
-          <View style={styles.goalItem} key={goal}>
-            <Text style={styles.goalText}>{goal}</Text>
+      <FlatList 
+      data={courseGoal} renderItem={(itemData) => {
+        itemData.index
+        return (
+          <View style={styles.goalItem} >
+            <Text style={styles.goalText}>{itemData.item.text}</Text>
           </View>
-        )}
-      </ScrollView>
+        );
+      }} 
+      keyExtractor={(item, index)=> {
+        return item.id;
+      }}
+      alwaysBounceVertical={false}>
+      </FlatList>
       </View>
 
     </View>
