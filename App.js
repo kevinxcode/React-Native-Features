@@ -38,7 +38,7 @@ export default function App() {
       return currentCourseGoals.filter((goal) =>goal.id !==id);
     });
   }
-  // end delete
+  // end delete  
 
   return (
     
