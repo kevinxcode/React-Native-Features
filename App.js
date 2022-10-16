@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, ScrollView, FlatList } from 'react-native';
+import GoalItem from './components/GoalItem';
+
 
 export default function App() {
   const [enteredGoaltext, setEnteredGoalText] = useState('');
@@ -29,11 +31,7 @@ export default function App() {
       <FlatList 
       data={courseGoal} renderItem={(itemData) => {
         itemData.index
-        return (
-          <View style={styles.goalItem} >
-            <Text style={styles.goalText}>{itemData.item.text}</Text>
-          </View>
-        );
+        return <GoalItem text={itemData.item.text}/>;
       }} 
       keyExtractor={(item, index)=> {
         return item.id;
@@ -72,14 +70,6 @@ const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
   },
-  goalItem: {
-    margin: 8,
-    padding: 8,
-    borderRadius: 6,
-    backgroundColor: '#5e0acc',
-  },
-  goalText: {
-    color: 'white',
-  }
+  
 
 });
