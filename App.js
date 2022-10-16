@@ -40,10 +40,10 @@ export default function App() {
   }
   // end delete
 
-
-
   return (
+    
     <View style={styles.appContainer}>
+      <StatusBar style="light" />
       <Button title='Add new Goal' color='#5e0acc' onPress={startAddGoalHandler}  />
       <GoalInput visible={modalIsVisible} 
       onAddGoal={addGoalHandler} 
