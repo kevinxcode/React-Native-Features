@@ -1,11 +1,13 @@
 {
   "expo": {
-    "name": "RNcourse",
-    "slug": "RNcourse",
+    "name": "todo apps",
+    "slug": "todoapps",
+    "privacy": "public",
+    "description": "todo apps",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "backgroundColor": "#1e085a",
+    "backgroundColor": "#fffff",
 
     "splash": {
       "image": "./assets/splash.png",
